@@ -1,7 +1,7 @@
 
 function readText (form) {
     TestVar =form.inputbox.value;
-    fetch('http://localhost:3000/weather?city='+TestVar).then(response=>{
+    fetch('/weather?city='+TestVar).then(response=>{
     response.json().then((data)=>{
         if(data.error){
             document.getElementById('para1').innerHTML=data.error;

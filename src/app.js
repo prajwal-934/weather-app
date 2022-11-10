@@ -3,7 +3,7 @@ const getLatLong = require('./utils/geoCode')
 const getWeather = require('./utils/weatherByLatLong')
 const express = require('express')
 const hbs = require('hbs')
-const { response } = require('express')
+const port = process.env.PORT || 3000
 
 const app = express()
 
@@ -43,7 +43,6 @@ app.get('/help', (req, res) => {
 })
 
 app.get('/weather', (req, res) => {
-    console.log(req.query.city+"///////////////////")
     if(!req.query.city){
         return res.send({
             error : "Must provide city name in URL"
@@ -112,6 +111,6 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log('Server is up on port 3000.')
 })
