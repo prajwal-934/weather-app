@@ -1,6 +1,4 @@
 
-console.log('Client side javascript file is loaded!')
-
 function readText (form) {
     TestVar =form.inputbox.value;
     fetch('http://localhost:3000/weather?city='+TestVar).then(response=>{
